@@ -1,6 +1,6 @@
 import { Settings } from "lucide-react";
-import { Button } from "./ui/button";
-import { ChevronDown } from "lucide-react";
+import { Button } from "../ui/button";
+import { SelectTokenWrapper } from "./select-token-wrapper";
 
 function SwapToken() {
     return (
@@ -32,7 +32,7 @@ function SwapSection() {
 
     return (
         <div className="shadow-sm rounded-xl px-3 py-4 bg-secondary w-full">
-            <label className="text-sm">
+            <label className="text-sm text-muted-foreground">
                 You pay
             </label>
             <div className="flex gap-x-1">
@@ -41,10 +41,13 @@ function SwapSection() {
                     placeholder="0"
                     className="w-full text-4xl bg-transparent focus:outline-none [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                 />
-                <SelectTokenButton />
+                <SelectTokenWrapper />
             </div>
-            <div className="flex mt-2">
-                <div className="ml-auto">
+            <div className="flex mt-2 justify-between">
+                <div className="text-sm my-auto text-muted-foreground">
+                    <span>$100,000</span>
+                </div>
+                <div>
                     <span className="text-sm">Balance: {tokenBalance}</span>
                     <Button variant={`link`}>
                         Max
@@ -59,15 +62,6 @@ function SwapButton() {
     return (
         <Button className="w-full" size={`lg`}>
             Select token
-        </Button>
-    );
-}
-
-function SelectTokenButton() {
-    return (
-        <Button variant="default" className="rounded-full whitespace-nowrap">
-            Select token
-            <ChevronDown className="h-4 w-4 ml-2" />
         </Button>
     );
 }

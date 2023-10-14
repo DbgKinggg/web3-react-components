@@ -1,6 +1,6 @@
 import ConnectWalletBtn from "@/components/connect-wallet-btn"
 import ClientOnly from '@/components/shared/client-only'
-import SwapToken from "@/components/swap-tokens"
+import SwapToken from "@/components/swap-tokens/swap-tokens"
 import ThemeToggle from "@/components/shared/theme-toggle"
 
 export default function Home() {
