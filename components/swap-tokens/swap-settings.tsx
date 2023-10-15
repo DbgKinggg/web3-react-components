@@ -15,6 +15,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { useEffect, useState } from "react";
+import { Switch } from "../ui/switch";
 
 function SwapSettings() {
     return (
@@ -87,6 +88,7 @@ function SlippageTolerance() {
                     </div>
                 </AccordionContent>
             </AccordionItem>
+            <RandomSetting />
         </Accordion>
     );
 }
@@ -111,6 +113,19 @@ function SlippageToleranceMode({ selectedMode, setSelectedMode }: SlippageTolera
                 Custom
             </Button>
         </div>
+    );
+}
+
+
+function RandomSetting() {
+    return (
+        <>
+            <div className="flex justify-between px-1 py-4 font-medium">
+                <span>Random setting</span>
+                <Switch />
+            </div>
+            <hr />
+        </>
     );
 }
 
