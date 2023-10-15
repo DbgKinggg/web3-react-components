@@ -1,13 +1,19 @@
 import { Button } from "../ui/button";
 import SelectTokenWrapper from "./select-token-wrapper";
 import SwapSettings from "./swap-settings";
+import { ArrowDown } from "lucide-react";
 
 function SwapToken() {
     return (
         <div className="bg-card grid gap-y-2 rounded-xl w-full shadow-lg max-w-lg border border-border pt-5 px-2 pb-2">
             <SwapHeader />
-            <SwapSection swapAction="selling" />
-            <SwapSection swapAction="buying" />
+            <div className="relative grid gap-y-2">
+                <SwapSection swapAction="selling" />
+                <SwapSection swapAction="buying" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <SwapArrow />
+                </div>
+            </div>
             <SwapButton />
         </div>
     );
@@ -69,6 +75,14 @@ function SwapButton() {
         <Button className="w-full" size={`lg`}>
             Swap
         </Button>
+    );
+}
+
+function SwapArrow() {
+    return (
+        <button className="rounded-lg border-[4px] border-background bg-secondary text-foreground p-1 group">
+            <ArrowDown className="transition duration-150 ease-in-out group-hover:rotate-180" />
+        </button>
     );
 }
 
