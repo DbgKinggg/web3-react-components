@@ -87,7 +87,7 @@ function SelectTokenWrapper() {
                 </Button>
             </DialogTrigger>
             <DialogContent className="px-0">
-                <DialogHeader className="mx-4">
+                <DialogHeader className="px-4">
                     <DialogTitle>Select a token</DialogTitle>
                 </DialogHeader>
                 <div className="mt-2 mx-4">
@@ -145,6 +145,8 @@ function CommonToken({ token, isSelected, setSelectedToken, setIsOpen }: CommonT
             isSelected && 'bg-secondary cursor-text'
         )}
             onClick={() => {
+                if (isSelected) return;
+
                 setSelectedToken(token);
                 setIsOpen(false);
             }}
@@ -245,6 +247,4 @@ function UserToken({ userToken, isSelected, setSelectedToken, setIsOpen }: UserT
     );
 }
 
-export {
-    SelectTokenWrapper,
-};
+export default SelectTokenWrapper;

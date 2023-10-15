@@ -1,13 +1,13 @@
-import { Settings } from "lucide-react";
 import { Button } from "../ui/button";
-import { SelectTokenWrapper } from "./select-token-wrapper";
+import SelectTokenWrapper from "./select-token-wrapper";
+import SwapSettings from "./swap-settings";
 
 function SwapToken() {
     return (
-        <div className="bg-card grid gap-y-1 rounded-xl w-full shadow-lg max-w-lg border border-border pt-5 px-2 pb-2">
+        <div className="bg-card grid gap-y-2 rounded-xl w-full shadow-lg max-w-lg border border-border pt-5 px-2 pb-2">
             <SwapHeader />
-            <SwapSection />
-            <SwapSection />
+            <SwapSection swapAction="selling" />
+            <SwapSection swapAction="buying" />
             <SwapButton />
         </div>
     );
@@ -18,22 +18,28 @@ function SwapHeader() {
         <div className="flex justify-between pl-3 pb-2">
             <div className="flex gap-2 items-center">
                 <div className="text-lg font-bold">Swap</div>
-                <div className="text-foreground">Buy</div>
             </div>
-            <Button variant={`ghost`} >
-                <Settings />
-            </Button>
+            <SwapSettings />
         </div>
     );
 }
 
-function SwapSection() {
+type SwapAction = 'buying' | 'selling';
+type SwapSectionProps = {
+    swapAction: SwapAction;
+}
+
+function SwapSection({ swapAction }: SwapSectionProps) {
     const tokenBalance = 100;
 
     return (
         <div className="shadow-sm rounded-xl px-3 py-4 bg-secondary w-full">
             <label className="text-sm text-muted-foreground">
-                You pay
+                {
+                    swapAction === 'buying'
+                        ? 'You buy'
+                        : 'You sell'
+                }
             </label>
             <div className="flex gap-x-1">
                 <input
@@ -61,7 +67,7 @@ function SwapSection() {
 function SwapButton() {
     return (
         <Button className="w-full" size={`lg`}>
-            Select token
+            Swap
         </Button>
     );
 }
