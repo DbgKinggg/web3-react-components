@@ -5,7 +5,7 @@ import { ArrowDown } from "lucide-react";
 
 function SwapToken() {
     return (
-        <div className="bg-card grid gap-y-2 rounded-xl w-full shadow-lg max-w-lg border border-border pt-5 px-2 pb-2">
+        <div className="bg-card grid gap-y-2 rounded-3xl w-full shadow-lg max-w-lg border border-border pt-5 px-2 pb-2">
             <SwapHeader />
             <div className="relative grid gap-y-2">
                 <SwapSection swapAction="selling" />
@@ -39,7 +39,7 @@ function SwapSection({ swapAction }: SwapSectionProps) {
     const tokenBalance = 100;
 
     return (
-        <div className="shadow-sm rounded-xl px-3 py-4 bg-secondary w-full">
+        <div className="shadow-sm rounded-3xl px-3 py-4 bg-secondary w-full">
             <label className="text-sm text-muted-foreground">
                 {
                     swapAction === 'buying'
